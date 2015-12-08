@@ -1,13 +1,22 @@
-require('./search-rx.tag')
-require('./search-list.tag')
+import './main-navigation.tag'
+import './list-view.tag'
+import './overview-view.tag'
+import * as store from '../store.js'
 
 <app>
-  <search-rx value="{state.text}" actions="{opts.actions}" />
-  <search-list list="{state.list}"/>
+  <main-navigation current="{route}"></main-navigation>
+
+  <overview-view if="{route === 'overview'}"></overview-view>
+  <list-view if="{route === 'list'}" list="{list}"></list-view>
 
   <script type="es6">
+    store.subscribe(() => {
+      this.update()
+    })
+
     this.on('update', () => {
-      this.state = opts.store.getState();
-    });
+      this.route = store.getState().route
+      this.list = store.getState().list
+    })
   </script>
 </app>

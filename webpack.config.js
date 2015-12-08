@@ -6,24 +6,26 @@ module.exports = {
       app: './src/index.js',
     },
     output: {
-        path: './dist/',
-        publicPath: '/dist/',
-        filename: 'bundle.js'
-    },
-    module: {
-        loaders: [
-            { test: /\.css$/, include: /src/, loader: 'style!css' },
-            { test: /\.html|\.tag$/, include: /src/, loader: 'riotjs' },
-            { test: /\.js$/, include: /src/, loader: 'babel', query: {modules: 'common'} }
-        ]
+      path: './dist/',
+      publicPath: '/dist/',
+      filename: 'bundle.js'
     },
     plugins: [
       new webpack.ProvidePlugin({
         riot: 'riot'
       })
     ],
-    devServer: {
-        port: 5555
+    module: {
+      preLoaders: [
+        { test: /\.tag$/, exclude: /node_modules/, loader: 'riotjs-loader', query: { type: 'es6' } }
+      ],
+      loaders: [
+        { test: /\.js|\.tag$/, exclude: /node_modules/, include: /src/, loader: 'babel-loader', query: {modules: 'common'} },
+        { test: /\.css$/, include: /src/, loader: 'style!css' }
+      ]
     },
-    devtool: "source-map"
+    devServer: {
+      port: 5555
+    },
+    devtool: 'source-maps'
 }
