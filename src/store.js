@@ -1,19 +1,12 @@
 import { createStore, applyMiddleware } from 'redux'
 import createLogger from 'redux-logger'
-import { rootReducer } from './reducers/root-reducer'
+import rootReducer from './reducers/root-reducer'
 
-// INIT STATE
-const initState = {
-  list: [1.337, 5.4321],
-  route: 'overview'
-}
-
+// Logger middleware
 const loggerMiddleware = createLogger()
-const createStoreWithMiddleware = applyMiddleware(
-  loggerMiddleware
-)(createStore)
 
-// STORE
-const store = createStoreWithMiddleware(rootReducer, initState)
+// Create store creator with middleware function
+const createStoreWithMiddleware = applyMiddleware(loggerMiddleware)(createStore)
 
-export default store
+// Create store, init state is defined by respective sub reducer
+export default createStoreWithMiddleware(rootReducer)

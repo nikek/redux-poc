@@ -1,8 +1,8 @@
 import expect from 'expect'
 import { ROUTE, UPDATE_LIST, ADD_ITEM } from '../action-types';
-import { rootReducer } from './root-reducer'
-import { route } from './route-reducer'
-import { list } from './list-reducer'
+import rootReducer from './root-reducer'
+import route from './route-reducer'
+import list from './list-reducer'
 
 
 // ROOT REDUCER STILL WORKS

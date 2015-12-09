@@ -1,6 +1,6 @@
 import { UPDATE_LIST, ADD_ITEM } from '../action-types'
 
-export const list = (state = [], action) => {
+export default (state = [1.337], action) => {
   switch (action.type) {
     case UPDATE_LIST:
       return action.list

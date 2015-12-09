@@ -1,5 +1,4 @@
-# r3 - A UI architecture
-riot, rx, redux
+# Redux PoC - A UI architecture
 
 Inspiration from https://github.com/txchen/feplay/tree/gh-pages/riot_webpack
 
