@@ -1,6 +1,8 @@
 # Redux PoC - A UI architecture
 
-Inspiration from https://github.com/txchen/feplay/tree/gh-pages/riot_webpack
+Inspiration from comes from a bunch of places, for example:
+* https://github.com/txchen/feplay/tree/gh-pages/riot_webpack
+* https://github.com/sapphiriq/riot-redux-experiments
 
 ```bash
 npm install
