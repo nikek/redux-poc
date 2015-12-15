@@ -1,5 +1,5 @@
 import 'riot'
 import './tags/app.tag'
-import './tests';
+import './tests'
 
 riot.mount('app')
