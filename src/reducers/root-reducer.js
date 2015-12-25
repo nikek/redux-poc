@@ -13,5 +13,4 @@ combineReducers creates something like:
     list: list(state.list, action)
   }
 }
-
 */
