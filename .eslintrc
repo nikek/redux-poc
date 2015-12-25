@@ -2,6 +2,7 @@
   "extends": "airbnb/base",
   "plugins": ["riot"],
   "rules" : {
+    "indent": [2, 2, {"SwitchCase": 1}],
     "semi": [2, "never"],
     "no-unused-vars": [2, {"args": "after-used", "argsIgnorePattern": "^_"}],
   },

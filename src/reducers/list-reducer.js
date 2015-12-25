@@ -7,6 +7,6 @@ export default (state = [1.337], action) => {
     case ADD_ITEM:
       return state.concat([action.item])
     default:
-      return state;
+      return state
   }
 }

@@ -2,9 +2,9 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server",
-    "dist": "webpack -p -d",
-    "viewdist": "light-server -s . -p 7000",
-    "lint": "eslint --ext .js,.tag src/*",
+    "build": "webpack -p",
+    "viewbuild": "light-server -s . -p 7000",
+    "lint": "eslint --ext .js,.tag src/* --ignore-pattern **/*.less --no-ignore",
     "test": "babel src/tests.js | node"
   },
   "devDependencies": {
@@ -17,8 +17,11 @@
     "eslint-config-airbnb": "^0.1.0",
     "eslint-plugin-riot": "^0.1.0",
     "expect": "^1.13.0",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.2",
     "light-server": "^1.0.6",
-    "riot": "^2.2.4",
+    "riotjs-loader": "^1.2.0",
     "style-loader": "^0.12.3",
     "webpack": "^1.12.1",
     "webpack-dev-server": "^1.10.1"
@@ -27,7 +30,7 @@
     "redux": "^3.0.4",
     "redux-logger": "^2.1.3",
     "redux-thunk": "^1.0.0",
-    "riotjs-loader": "^1.2.0",
+    "riot": "^2.2.4",
     "rx": "^4.0.6"
   }
 }

@@ -1,12 +1,12 @@
-import { addItem } from '../intents'
-
 <overview-view>
   <h3>Overview</h3>
   <button type="button" onclick="{add}">Add number</button>
+
   <script type="es6">
+    import { addItem } from '../intents'
+    
     this.add = () => {
-      let num = Math.random() * 10
-      addItem(num)
+      addItem(Math.random() * 10)
     }
   </script>
 </overview-view>

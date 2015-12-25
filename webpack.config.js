@@ -1,19 +1,16 @@
 var webpack = require('webpack')
+var ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 module.exports = {
-    cache: true,
-    entry: {
-      app: './src/index.js',
-    },
+    entry: { app: './src/index.js' },
     output: {
-      path: './dist/',
-      publicPath: '/dist/',
-      filename: 'bundle.js'
+      path: './build/',
+      publicPath: '/build/',
+      filename: 'all.js'
     },
     plugins: [
-      new webpack.ProvidePlugin({
-        riot: 'riot'
-      })
+      new webpack.ProvidePlugin({ riot: 'riot' }),
+      new ExtractTextPlugin('all.css')
     ],
     module: {
       preLoaders: [
@@ -21,11 +18,8 @@ module.exports = {
       ],
       loaders: [
         { test: /\.js|\.tag$/, exclude: /node_modules/, include: /src/, loader: 'babel-loader', query: {modules: 'common'} },
-        { test: /\.css$/, include: /src/, loader: 'style!css' }
+        { test: /\.less$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader") }
       ]
     },
-    devServer: {
-      port: 5555
-    },
-    devtool: 'source-maps'
+    devServer: { port: 5555 }
 }
