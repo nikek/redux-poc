@@ -3,8 +3,8 @@
   <button type="button" onclick="{add}">Add number</button>
 
   <script type="es6">
-    import { addItem } from '../intents'
-    
+    import { addItem } from '../list/list-intents'
+
     this.add = () => {
       addItem(Math.random() * 10)
     }

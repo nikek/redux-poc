@@ -1,6 +1,6 @@
-import { ROUTE } from '../action-types'
+export const ROUTE = 'ROUTE'
 
-export default (state = 'overview', action) => {
+export const routeReducer = (state = 'overview', action) => {
   switch (action.type) {
     case ROUTE:
       if (!action.location || typeof action.location !== 'string') {

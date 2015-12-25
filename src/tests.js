@@ -1,3 +1,5 @@
 // Reducers
-import './reducers/list-reducer.spec.js'
-import './reducers/route-reducer.spec.js'
+import './list/list.spec.js'
+import './route/route.spec.js'
+
+console.log("All tests passed!");

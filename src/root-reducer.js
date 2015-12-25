@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux'
-import route from './route-reducer'
-import list from './list-reducer'
+import { listReducer as list } from './list/list'
+import { routeReducer as route } from './route/route'
 
-export default combineReducers({ route, list })
+
+export default combineReducers({ list, route })
 
 /**
 combineReducers creates something like:

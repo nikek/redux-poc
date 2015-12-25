@@ -5,7 +5,7 @@
   </nav>
 
   <script>
-    import { routeTo } from '../intents'
+    import { routeTo } from '../route/route-intents'
     import store from '../store'
 
     this.routes = [

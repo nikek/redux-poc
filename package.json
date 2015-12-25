@@ -4,7 +4,8 @@
     "dev": "webpack-dev-server",
     "build": "webpack -p",
     "viewbuild": "light-server -s . -p 7000",
-    "lint": "eslint --ext .js,.tag src/* --ignore-pattern **/*.less --no-ignore"
+    "lint": "eslint --ext .js,.tag src/* --ignore-pattern **/*.less --no-ignore",
+    "test": "./node_modules/babel/bin/babel-node.js ./src/tests.js"
   },
   "devDependencies": {
     "babel": "^5.8.23",

@@ -1,6 +1,5 @@
 import expect from 'expect'
-import { ROUTE } from '../action-types'
-import route from './route-reducer'
+import { ROUTE, routeReducer } from './route'
 
 let createReducerTester = (reducer) => {
   return (currentState, newState, action) => {
@@ -8,7 +7,7 @@ let createReducerTester = (reducer) => {
   }
 }
 
-let testRoute = createReducerTester(route)
+let testRoute = createReducerTester(routeReducer)
 
 // Different input states
 testRoute('foo',      'awesomeView', { type: ROUTE, location: 'awesomeView' })
