@@ -3,10 +3,10 @@ import './list-view.tag'
 import './overview-view.tag'
 
 <app>
-  <main-navigation current="{route}"></main-navigation>
+  <main-navigation></main-navigation>
 
-  <overview-view if="{route === 'overview'}"></overview-view>
-  <list-view if="{route === 'list'}" list="{list}"></list-view>
+  <overview-view if="{route.name === 'overview'}"></overview-view>
+  <list-view if="{route.name === 'list'}" list="{list}"></list-view>
 
   <script type="es6">
     import store from '../store.js'

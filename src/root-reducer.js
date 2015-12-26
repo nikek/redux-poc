@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { listReducer as list } from './list/list'
+import { listReducer as list } from './list/list'
 import { routeReducer as route } from './route/route'
 
 

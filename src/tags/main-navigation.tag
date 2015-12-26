@@ -1,28 +1,22 @@
 <main-navigation>
   <h1>Logo</h1>
   <nav>
-    <a each="{ routes }" href="{ href }" onclick="{ route }" class="{ disabled: current === name }">{ name }</a>
+    <a each="{ routes }" href="{ path }" onclick="{ navigate }">{ name }</a>
   </nav>
 
   <script>
-    import { routeTo } from '../route/route-intents'
+    import router from '../route/route-listener'
+    import routes from '../route/route-config'
     import store from '../store'
 
-    this.routes = [
-      { name: 'overview', href: '/overview' },
-      { name: 'list', href: '/list' }
-    ]
+    this.routes = routes;
 
-    this.route = (e) => {
-      // extract location from anchor tag
-      let loc = e.target.pathname.split('/')[1]
-
-      if(this.current !== loc)
-        routeTo(loc);
+    this.navigate = (e) => {
+      router.navigate(e.item.path);
     }
 
     this.on('update', () => {
-      this.current = store.getState().route;
+      this.current = store.getState().route.name;
     })
   </script>
 </main-navigation>

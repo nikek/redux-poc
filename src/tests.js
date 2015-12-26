@@ -2,4 +2,4 @@
 import './list/list.spec.js'
 import './route/route.spec.js'
 
-console.log("All tests passed!");
+console.log('All tests passed!') // eslint-disable-line no-console

@@ -1,28 +1,76 @@
 import expect from 'expect'
 import { ROUTE, routeReducer } from './route'
 
-let createReducerTester = (reducer) => {
+const createReducerTester = (reducer) => {
   return (currentState, newState, action) => {
     expect(reducer(currentState, action)).toEqual(newState)
   }
 }
 
-let testRoute = createReducerTester(routeReducer)
+const testRoute = createReducerTester(routeReducer)
 
 // Different input states
-testRoute('foo',      'awesomeView', { type: ROUTE, location: 'awesomeView' })
-testRoute('overview', 'awesomeView', { type: ROUTE, location: 'awesomeView' })
-testRoute('',         'awesomeView', { type: ROUTE, location: 'awesomeView' })
-testRoute(undefined,  'awesomeView', { type: ROUTE, location: 'awesomeView' })
+testRoute(
+  { name: 'foo', path: '', params: undefined },
+  { name: 'awesomeView', path: '', params: undefined},
+  { type: ROUTE, route: { name: 'awesomeView', path: '', params: undefined }}
+)
+testRoute(
+  { name: 'overview', path: '', params: undefined },
+  { name: 'awesomeView', path: '', params: undefined },
+  { type: ROUTE, route: { name: 'awesomeView', path: '', params: undefined }}
+)
+testRoute(
+  { name: '', path: '', params: undefined },
+  { name: 'awesomeView', path: '', params: undefined },
+  { type: ROUTE, route: { name: 'awesomeView', path: '', params: undefined }}
+)
+testRoute(
+  { name: undefined, path: '', params: undefined },
+  { name: 'awesomeView', path: '', params: undefined },
+  { type: ROUTE, route: { name: 'awesomeView', path: '', params: undefined }}
+)
 
 // Falsy location
-testRoute('foo', 'overview', { type: ROUTE, location: '' })
-testRoute('foo', 'overview', { type: ROUTE, location: null })
-testRoute('foo', 'overview', { type: ROUTE, location: undefined })
-testRoute('foo', 'overview', { type: ROUTE })
+testRoute(
+  { name: 'foo', path: '', params: undefined },
+  { name: 'foo', path: '', params: undefined },
+  { type: ROUTE, route: { name: '', path: '', params: undefined }}
+)
+testRoute(
+  { name: 'foo', path: '', params: undefined },
+  { name: 'foo', path: '', params: undefined },
+  { type: ROUTE, route: { name: null, path: '', params: undefined }}
+)
+testRoute(
+  { name: 'foo', path: '', params: undefined },
+  { name: 'foo', path: '', params: undefined },
+  { type: ROUTE, route: { name: undefined, path: '', params: undefined }}
+)
+testRoute(
+  { name: 'foo', path: '', params: undefined },
+  { name: 'foo', path: '', params: undefined },
+  { type: ROUTE }
+)
 
 // Type error
-testRoute('foo', 'overview', { type: ROUTE, location: 7 })
-testRoute('foo', 'overview', { type: ROUTE, location: {} })
-testRoute('foo', 'overview', { type: ROUTE, location: [] })
-testRoute('foo', 'overview', { type: ROUTE, location: NaN })
+testRoute(
+  { name: 'foo', path: '', params: undefined },
+  { name: 'foo', path: '', params: undefined },
+  { type: ROUTE, route: { name: 7, path: '', params: undefined }}
+)
+testRoute(
+  { name: 'foo', path: '', params: undefined },
+  { name: 'foo', path: '', params: undefined },
+  { type: ROUTE, route: { name: {}, path: '', params: undefined }}
+)
+testRoute(
+  { name: 'foo', path: '', params: undefined },
+  { name: 'foo', path: '', params: undefined },
+  { type: ROUTE, route: { name: [], path: '', params: undefined }}
+)
+testRoute(
+  { name: 'foo', path: '', params: undefined },
+  { name: 'foo', path: '', params: undefined },
+  { type: ROUTE, route: { name: NaN, path: '', params: undefined }}
+)
