@@ -5,11 +5,12 @@ import routeConfigs from './route-config'
 
 const router = new Grapnel({ pushState: false })
 
+/**
+* For each item in the config this function creates a route in the Grapnel router.
+*/
 routeConfigs.forEach((config) => {
   router.get(config.path + (config.paramPath || ''), (req, event) => {
-    if (router.path() !== store.getState().route.path) {
-      routeTo(config.name, event.value || '/', req.params)
-    }
+    routeTo(config.name, event.value || '/', req.params)
   })
 })
 

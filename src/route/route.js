@@ -1,6 +1,11 @@
 export const ROUTE = 'ROUTE'
 
-export const routeReducer = (state = { name: 'overview', path: '/' }, action) => {
+const defaultRoute = {
+  name: 'overview',
+  path: '/'
+}
+
+export const routeReducer = (state = defaultRoute, action) => {
   switch (action.type) {
     case ROUTE:
       if (action.route && action.route.name && typeof action.route.name === 'string') {
